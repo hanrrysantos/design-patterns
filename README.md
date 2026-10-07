@@ -43,7 +43,7 @@ Esta é uma seleção para começar a estudar, não uma classificação de popul
 - [State: etapas de um pedido](padroes-comportamentais/state/README.md)
 - [Observer: avisos de estoque](padroes-comportamentais/observer/README.md)
 
-Cada pasta contém um README com problema, ideia, implementação, exemplo real, vantagens e desvantagens, quando usar e quando não usar. O código fica em `src` e os comandos de execução estão no README de cada padrão.
+Cada pasta contém um README com problema, ideia, diagrama, implementação, exemplo real, vantagens e desvantagens, quando usar e quando não usar. O código fica em `src` e os comandos de execução estão no README de cada padrão.
 
 Para compilar e executar todos os exemplos de uma vez, rode `bash executar-exemplos.sh` na raiz do repositório. O script usa uma pasta temporária para não deixar arquivos `.class` nas pastas dos exemplos.
 
