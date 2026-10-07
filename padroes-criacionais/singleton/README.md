@@ -8,6 +8,22 @@ Partes diferentes de uma aplicação precisam consultar a mesma configuração c
 
 Permitir que exista uma única instância da classe e oferecer um ponto de acesso a ela. Em Java, um construtor privado impede a criação direta; um campo `static final` guarda a instância compartilhada.
 
+## Diagrama
+
+```mermaid
+classDiagram
+    class Configuracao {
+        -Configuracao INSTANCIA$
+        -Configuracao()
+        +getInstancia() Configuracao$
+        +getNomeAplicacao() String
+    }
+    note for Configuracao "INSTANCIA é final"
+    Main ..> Configuracao : consulta duas vezes
+```
+
+As duas consultas de `Main` recebem a mesma instância de `Configuracao`.
+
 ## Implementação
 
 Em [`src/Configuracao.java`](src/Configuracao.java), `Configuracao` cria sua instância uma vez, lê `APP_NAME` do ambiente e expõe `getInstancia()`. O [`Main`](src/Main.java) consulta a configuração por duas referências e mostra que ambas apontam para o mesmo objeto.

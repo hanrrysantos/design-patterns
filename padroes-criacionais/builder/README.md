@@ -8,6 +8,28 @@ Um pedido tem dados obrigatórios e opções independentes. Vários construtores
 
 Montar o objeto passo a passo com um `Builder`, escolhendo apenas as opções desejadas. O resultado é um `Pedido` imutável.
 
+## Diagrama
+
+```mermaid
+classDiagram
+    class Pedido {
+        -String cliente
+        -String prato
+        -boolean sobremesa
+        -boolean entrega
+    }
+    class Builder["Pedido.Builder"]
+    class Builder {
+        +Builder(String cliente, String prato)
+        +comSobremesa() Builder
+        +paraEntrega() Builder
+        +construir() Pedido
+    }
+    Builder ..> Pedido : constrói
+```
+
+`Builder` é uma classe interna de `Pedido`; `construir()` devolve o objeto pronto.
+
 ## Implementação
 
 [`Pedido.Builder`](src/Pedido.java) exige cliente e prato, permite adicionar sobremesa e entrega, e cria o pedido com `construir()`. O [`Main`](src/Main.java) mostra um pedido simples e outro com as duas opções.

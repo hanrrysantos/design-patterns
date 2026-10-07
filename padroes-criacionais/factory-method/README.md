@@ -8,6 +8,21 @@ Um sistema precisa enviar notificações por canais diferentes. Se a rotina de e
 
 Deixar o fluxo de envio na classe criadora e delegar a criação da notificação a um método que as subclasses implementam. Assim, o fluxo usa a interface `Notificacao` sem conhecer a classe concreta.
 
+## Diagrama
+
+```mermaid
+classDiagram
+    ServicoNotificacao <|-- ServicoEmail
+    ServicoNotificacao <|-- ServicoSMS
+    Notificacao <|.. NotificacaoEmail
+    Notificacao <|.. NotificacaoSMS
+    ServicoNotificacao ..> Notificacao : cria e envia
+    ServicoEmail ..> NotificacaoEmail : cria
+    ServicoSMS ..> NotificacaoSMS : cria
+```
+
+As subclasses escolhem o produto; `ServicoNotificacao` mantém o mesmo fluxo de envio.
+
 ## Implementação
 
 As classes estão separadas em arquivos dentro de [`src`](src):
