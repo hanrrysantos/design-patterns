@@ -8,6 +8,17 @@ Um pedido aceita ações diferentes conforme seu estado: aberto pode ser pago, p
 
 Cada estado implementa as ações permitidas e decide a próxima transição. O pedido delega o comportamento ao estado atual.
 
+## Diagrama
+
+```mermaid
+stateDiagram-v2
+    [*] --> Aberto
+    Aberto --> Pago: pagar()
+    Pago --> Enviado: enviar()
+```
+
+As ações rejeitadas lançam uma exceção e não alteram o estado do pedido.
+
 ## Implementação
 
 [`EstadoPedido`](src/EstadoPedido.java) define as ações. [`Aberto`](src/Aberto.java), [`Pago`](src/Pago.java) e [`Enviado`](src/Enviado.java) implementam regras e transições. [`Pedido`](src/Pedido.java) guarda o estado atual; o [`Main`](src/Main.java) tenta enviar antes do pagamento, mostra o erro e depois percorre o fluxo válido. Ações inválidas lançam `IllegalStateException`.

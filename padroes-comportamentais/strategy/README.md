@@ -8,6 +8,18 @@ O cálculo do frete muda conforme a modalidade. Uma sequência crescente de cond
 
 Representar cada algoritmo por uma estratégia com a mesma interface. O contexto usa a estratégia escolhida sem conhecer sua fórmula.
 
+## Diagrama
+
+```mermaid
+classDiagram
+    EstrategiaFrete <|.. FreteNormal
+    EstrategiaFrete <|.. FreteExpresso
+    CalculadoraFrete --> EstrategiaFrete : usa
+    Main ..> CalculadoraFrete : troca estratégia
+```
+
+`CalculadoraFrete` usa a estratégia atual; `Main` pode trocá-la sem alterar a calculadora.
+
 ## Implementação
 
 [`EstrategiaFrete`](src/EstrategiaFrete.java) define `calcular`. [`FreteNormal`](src/FreteNormal.java) e [`FreteExpresso`](src/FreteExpresso.java) implementam fórmulas diferentes. [`CalculadoraFrete`](src/CalculadoraFrete.java) permite trocar a estratégia; o [`Main`](src/Main.java) calcula ambas para o mesmo peso. Os valores são didáticos, em reais inteiros.

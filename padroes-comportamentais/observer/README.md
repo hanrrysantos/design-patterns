@@ -8,6 +8,26 @@ Quando a quantidade em estoque muda, mais de uma parte do sistema precisa saber,
 
 Interessados se cadastram como observadores. O objeto observado envia uma atualização a todos quando seu estado muda.
 
+## Diagrama
+
+```mermaid
+sequenceDiagram
+    participant Main
+    participant Estoque
+    participant Vitrine as Observador vitrine
+    participant Compras as Observador compras
+    Main->>Estoque: adicionarObservador(vitrine)
+    Main->>Estoque: adicionarObservador(compras)
+    Main->>Estoque: atualizarQuantidade(5)
+    Estoque->>Vitrine: atualizar(5)
+    Estoque->>Compras: atualizar(5)
+    Main->>Estoque: removerObservador(compras)
+    Main->>Estoque: atualizarQuantidade(3)
+    Estoque->>Vitrine: atualizar(3)
+```
+
+Depois da remoção, apenas a vitrine recebe a segunda atualização.
+
 ## Implementação
 
 [`ObservadorEstoque`](src/ObservadorEstoque.java) define `atualizar`. [`Estoque`](src/Estoque.java) mantém a lista de observadores e os notifica após uma mudança de quantidade. O [`Main`](src/Main.java) cadastra dois observadores, remove um e mostra quem recebe cada aviso.
