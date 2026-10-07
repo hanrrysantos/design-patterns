@@ -16,7 +16,7 @@ O livro *Design Patterns: Elements of Reusable Object-Oriented Software*, de Eri
 | --- | --- | --- |
 | Criacionais | Como criar objetos com flexibilidade? | Factory Method, Singleton, Builder |
 | Estruturais | Como combinar classes e objetos? | Adapter, Decorator, Facade |
-| Comportamentais | Como distribuir responsabilidades e comunicação? | Strategy, Observer, Command |
+| Comportamentais | Como distribuir responsabilidades e comunicação? | Strategy, State, Observer |
 
 ## Padrões comuns na prática
 
@@ -35,6 +35,13 @@ Esta é uma seleção para começar a estudar, não uma classificação de popul
 
 - [Factory Method: notificações por e-mail e SMS](padroes-criacionais/factory-method/README.md)
 - [Singleton: configuração compartilhada da aplicação](padroes-criacionais/singleton/README.md)
+- [Builder: pedidos com opções](padroes-criacionais/builder/README.md)
+- [Adapter: impressora legada](padroes-estruturais/adapter/README.md)
+- [Decorator: formatação de mensagens](padroes-estruturais/decorator/README.md)
+- [Facade: fluxo de compra](padroes-estruturais/facade/README.md)
+- [Strategy: cálculo de frete](padroes-comportamentais/strategy/README.md)
+- [State: etapas de um pedido](padroes-comportamentais/state/README.md)
+- [Observer: avisos de estoque](padroes-comportamentais/observer/README.md)
 
 Cada pasta contém um README com problema, ideia, implementação, exemplo real, vantagens e desvantagens, quando usar e quando não usar. O código fica em `src` e os comandos de execução estão no README de cada padrão.
 
