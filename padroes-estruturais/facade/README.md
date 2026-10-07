@@ -8,6 +8,23 @@ Para concluir uma compra, o cliente teria de conhecer e chamar os serviços de e
 
 Oferecer uma operação simples que coordena as chamadas ao subsistema.
 
+## Diagrama
+
+```mermaid
+sequenceDiagram
+    participant Main
+    participant CompraFacade
+    participant Estoque
+    participant Pagamento
+    participant Entrega
+    Main->>CompraFacade: comprar("Livro")
+    CompraFacade->>Estoque: reservar(produto)
+    CompraFacade->>Pagamento: cobrar(produto)
+    CompraFacade->>Entrega: agendar(produto)
+```
+
+`Main` faz uma chamada; a fachada coordena os três componentes na sequência.
+
 ## Implementação
 
 [`CompraFacade`](src/CompraFacade.java) expõe `comprar`. Ela chama [`Estoque`](src/Estoque.java), [`Pagamento`](src/Pagamento.java) e [`Entrega`](src/Entrega.java). O [`Main`](src/Main.java) precisa conhecer apenas a fachada. As operações do exemplo são simuladas no terminal.

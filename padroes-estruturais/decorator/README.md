@@ -8,6 +8,19 @@ Uma mensagem pode receber prefixo e conversão para maiúsculas, separadamente o
 
 Cada decorador implementa a mesma interface da mensagem e envolve outra mensagem. Os comportamentos podem ser empilhados na ordem desejada.
 
+## Diagrama
+
+```mermaid
+classDiagram
+    Mensagem <|.. MensagemSimples
+    Mensagem <|.. Maiusculas
+    Mensagem <|.. Prefixo
+    Maiusculas --> Mensagem : envolve
+    Prefixo --> Mensagem : envolve
+```
+
+No exemplo, `Prefixo` envolve `Maiusculas`, que envolve `MensagemSimples`.
+
 ## Implementação
 
 [`Mensagem`](src/Mensagem.java) define `texto()`. [`MensagemSimples`](src/MensagemSimples.java) guarda o texto original. [`Maiusculas`](src/Maiusculas.java) e [`Prefixo`](src/Prefixo.java) acrescentam comportamento por composição. O [`Main`](src/Main.java) combina os dois decoradores.

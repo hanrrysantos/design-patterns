@@ -8,6 +8,17 @@ O código novo espera um `Relatorio` que recebe título e conteúdo, mas uma imp
 
 Colocar um adaptador entre as duas interfaces. O cliente chama `exibir`, e o adaptador traduz essa chamada para `imprimirTexto`.
 
+## Diagrama
+
+```mermaid
+classDiagram
+    Relatorio <|.. AdaptadorImpressora
+    AdaptadorImpressora --> ImpressoraLegada : delega
+    Main ..> Relatorio : usa
+```
+
+`Main` conhece `Relatorio`; o adaptador faz a chamada à impressora antiga.
+
 ## Implementação
 
 [`Relatorio`](src/Relatorio.java) é a interface esperada. [`ImpressoraLegada`](src/ImpressoraLegada.java) é a API existente. [`AdaptadorImpressora`](src/AdaptadorImpressora.java) junta título e conteúdo e delega a impressão. O [`Main`](src/Main.java) usa apenas a interface nova.
