@@ -10,7 +10,7 @@ Cada estado implementa as ações permitidas e decide a próxima transição. O 
 
 ## Implementação
 
-[`EstadoPedido`](src/EstadoPedido.java) define as ações. [`Aberto`](src/Aberto.java), [`Pago`](src/Pago.java) e [`Enviado`](src/Enviado.java) implementam regras e transições. [`Pedido`](src/Pedido.java) guarda o estado atual; o [`Main`](src/Main.java) percorre o fluxo completo. Ações inválidas lançam `IllegalStateException`.
+[`EstadoPedido`](src/EstadoPedido.java) define as ações. [`Aberto`](src/Aberto.java), [`Pago`](src/Pago.java) e [`Enviado`](src/Enviado.java) implementam regras e transições. [`Pedido`](src/Pedido.java) guarda o estado atual; o [`Main`](src/Main.java) tenta enviar antes do pagamento, mostra o erro e depois percorre o fluxo válido. Ações inválidas lançam `IllegalStateException`.
 
 ```bash
 cd padroes-comportamentais/state
